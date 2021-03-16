@@ -1,29 +1,23 @@
-package com.orange.pokemon.data
+package com.example.pokemon.data
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
-
-import com.orange.pokemon.model.Pokemon
+import androidx.room.*
 
 @Database(
     entities = [PokemonEntity::class],
     version = 1
 )
 abstract class PokemonDatabase : RoomDatabase(){
+    abstract fun getPokemonDao(): PokemonDao
 
-    abstract fun getPokemon(): PokemonDao
-
-    companion object {
-
+    companion object{
         private var instance: PokemonDatabase? = null
 
         fun getInstance(context: Context): PokemonDatabase {
             if (instance == null) {
                 instance = Room.databaseBuilder(
                     context,
-                    PokemonDatabase :: class.java,
+                    PokemonDatabase::class.java,
                     "pokemon_db"
                 ).build()
             }

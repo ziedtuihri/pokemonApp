@@ -1,7 +1,7 @@
-package com.orange.pokemon.data
+package com.example.pokemon.data
 
 import androidx.room.*
-import com.orange.pokemon.model.Pokemon
+
 @Dao
 interface PokemonDao {
     @Insert
@@ -21,5 +21,4 @@ interface PokemonDao {
 
     @Update
     suspend fun updateOne(transactionEntity: PokemonEntity)
-
 }

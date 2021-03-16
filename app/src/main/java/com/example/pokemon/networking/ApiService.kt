@@ -1,6 +1,6 @@
-package com.orange.pokemon.networking
+package com.example.pokemon.networking
 
-import com.orange.pokemon.model.Pokemon
+import com.example.pokemon.model.Pokemon
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -15,9 +15,8 @@ interface ApiService {
     @POST("user")
     fun createPokemon(@Body pokemon: Pokemon)
 
-    // deletepokemon(1, "tester") -> pokemon/1/tester
+    // deletePokemon(1, "tester") -> pokemon/1/tester
     @GET("pokemon/{id}/{name}")
-    fun deletepokemon(@Query("id") id: Int, @Query("name") name: String)
-
+    fun deletePokemon(@Query("id") id: Int, @Query("name") name: String)
 
 }

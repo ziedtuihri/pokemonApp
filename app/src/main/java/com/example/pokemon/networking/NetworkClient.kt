@@ -1,6 +1,5 @@
-package com.orange.pokemon.networking
+package com.example.pokemon.networking
 
-import android.util.Log
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -9,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class NetworkClient {
 
-    private val baseUrl = "http://gist.githubusercontent.com/"
+    private val baseUrl = "https://gist.githubusercontent.com/"
 
     fun getRetrofit(): Retrofit {
 
@@ -20,7 +19,7 @@ class NetworkClient {
             .addInterceptor(Interceptor {
                 val request = it.request()
                 val newRequest = request.newBuilder()
-                    .addHeader("authorization", "TOKEN")
+                    //.addHeader("authorization", "TOKEN")
                     .build()
                 return@Interceptor it.proceed(newRequest)
             })
